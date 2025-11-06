@@ -1,0 +1,290 @@
+@import url(../global/reset.css);
+
+.interface {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tela-login {
+    width: 70%;
+    text-align: center;
+    transition: transform .5s, opacity .5s;
+}
+
+.tela-login h1 {
+    font-size: 3.5rem;
+    color: var(--cor-white);
+}
+
+.tela-login h1 .tilteone {
+    color: var(--cor-secundaria);
+}
+
+.tela-login h1 span {
+    color: var(--cor-terciaria);
+}
+
+.tela-login form {
+    width: 100%;
+    max-width: 500px;
+    margin: 64px auto;
+}
+
+.tela-login form input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 8px;
+    outline: none;
+    border: none;
+    background-color: var(--cor-white);
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.tela-login form>a {
+    font-size: .9rem;
+    text-align: right;
+    display: block;
+    color: var(--cor-primaria);
+}
+
+.tela-login form>a:hover {
+    color: var(--cor-terciaria);
+}
+
+.tela-login form .btn-login {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-black);
+    margin-top: 24px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.tela-login form .btn-login:hover {
+    background-color: var(--cor-terciaria);
+    color: var(--cor-white);
+}
+
+/* botão cadastro */
+
+.tela-login form .btn-cadastro {
+    background-color: var(--cor-terciaria);
+    color: var(--cor-black);
+    margin-top: 24px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.tela-login form .btn-cadastro:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-white);
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-icon {
+    position: relative;
+    width: 100%;
+}
+
+.input-icon input {
+    width: 100%;
+    padding: 16px 48px 16px 16px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background-color: var(--cor-quaternaria);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.input-icon i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: var(--cor-quaternaria);
+    cursor: pointer;
+}
+
+.tela-login .opt-login p {
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: var(--cor-white);
+}
+
+.opt-login .btn-opt-login button {
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--cor-quaternaria);
+    background-color: transparent;
+    box-shadow: 4px 4px 10px #04040420;
+    margin: 0 4px;
+    cursor: pointer;
+    border-radius: 30%;
+    transition: background-color .2s;
+}
+
+.opt-login .btn-opt-login button:hover {
+    transform: scale(1.2);
+    background-color: var(--cor-quaternaria);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.333);
+}
+
+.opt-login button img {
+    width: 50%;
+}
+
+.criar-conta p {
+    font-weight: 400;
+    margin-top: 56px;
+    color: var(--cor-white);
+}
+
+.criar-conta p a {
+    color: var(--cor-primaria);
+}
+
+.criar-conta p a:hover {
+    color: var(--cor-terciaria);
+}
+
+.img-decoracao {
+    width: 30%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img-login {
+    background-image: url(/public/app/src/src/assets/components/images/cyberpunk-city.jpg);
+    border-radius: 64px 0 0 64px;
+    transition: transform .5s, opacity .5s;
+    box-shadow: 30px 0 35px 0 rgb(132, 92, 220);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.8s ease;
+    animation: pulse-glow-roxo 4s infinite ease-in-out;
+}
+
+.img-login:hover {
+    box-shadow: -20px 0 40px rgba(132, 92, 220, 1);
+}
+
+@keyframes pulse-glow-roxo {
+    0% {
+        box-shadow: 0 0 20px 5px rgba(132, 92, 220, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 45px 15px rgba(132, 92, 220, 0.9);
+    }
+
+    100% {
+        box-shadow: 0 0 20px 5px rgba(132, 92, 220, 0.3);
+    }
+}
+
+/* tela criar conta */
+
+.img-criar-conta {
+    background-image: url(/public/app/src/src/assets/components/images/personagem.jpg);
+    border-radius: 0 64px 64px 0;
+    transition: transform .5s, opacity .5s;
+    box-shadow: 30px 0 35px 0 rgb(91, 181, 207);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.8s ease;
+    animation: pulse-glow-azul 4s infinite ease-in-out;
+}
+
+.img-criar-conta:hover {
+    box-shadow: -20px 0 40px rgb(91, 181, 207, 1);
+}
+
+@keyframes pulse-glow-azul {
+    0% {
+        box-shadow: 0 0 20px 5px rgba(91, 181, 207, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 45px 15px rgb(91, 181, 207, 0.9);
+    }
+
+    100% {
+        box-shadow: 0 0 20px 5px rgba(91, 181, 207, 0.3);
+    }
+}
+
+.nome-sobrenome {
+    display: flex;
+    gap: 8px;
+}
+
+/* Efeitos e transição */
+
+#login,
+#criar-conta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+#criar-conta {
+    pointer-events: none;
+}
+
+#criar-conta .tela-login {
+    transform: translateX(15rem);
+    opacity: 0;
+}
+
+#criar-conta .img-criar-conta {
+    transform: translateX(-15rem);
+    opacity: 0;
+}
+
+/* --------------------------------- */
+
+.ativo #login .tela-login {
+    transform: translateX(-15rem);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ativo #login .img-login {
+    transform: translateX(15rem);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ------------------- */
+
+.ativo #criar-conta {
+    pointer-events: initial;
+}
+
+.ativo #criar-conta .tela-login {
+    transform: translateX(0rem);
+    opacity: 1;
+}
+
+.ativo #criar-conta .img-criar-conta {
+    transform: translateX(0rem);
+    opacity: 1;
+}
+

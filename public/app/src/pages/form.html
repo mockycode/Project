@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles/form.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="../js/login.js" defer></script>
+    <title>Tela de Login e Cadastro</title>
+</head>
+
+<body>
+    <!-- Tela de Login -->
+
+    <main id="login-registro">
+
+        <div class="interface" id="login">
+
+            <section class="tela-login">
+
+                <h1>Faça seu <span class="tilteone">Login</span></h1>
+
+                <form action="login.php" method="POST">
+                    <div class="input-icon">
+                        <input type="email" name="email" id="email" placeholder="Usuario">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="input-icon">
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                        <i class="bi bi-eye btn-senha"></i>
+                    </div>
+
+                    <a href="#">Esqueceu a senha?</a>
+                    <input type="submit" value="Acessar" class="btn-login">
+                </form>
+
+                <article class="opt-login">
+                    <p>Ou faça login usando</p>
+                    <div class="btn-opt-login">
+                        <button><img src="../src/assets/components/icons/icone-google.svg" alt="icone-google"></button>
+                        <button><img src="../src/assets/components/icons/icone-apple.svg" alt="icone-apple"></button>
+                        <button><img src="../src/assets/components/icons/icone-facebook.svg"
+                                alt="icone-facebook"></button>
+                    </div>
+                </article>
+
+                <article class="criar-conta">
+                    <p>Ainda não possui conta? <a href="#" id="btn-registro">Cadastre-se</a></p>
+                </article>
+            </section>
+
+            <section class="img-decoracao img-login"></section>
+
+        </div>
+
+        <!-- Tela de Cadastro -->
+
+        <div class="interface" id="criar-conta">
+
+            <section class="img-decoracao img-criar-conta"></section>
+
+            <section class="tela-login">
+
+                <h1>Crie a <span>sua conta</span></h1>
+
+                <form action="#">
+
+                    <div class="nome-sobrenome">
+
+                        <div class="input-icon">
+                            <input type="text" name="nome" id="nome" placeholder="Nome">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+
+                        <div class="input-icon">
+                            <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-icon">
+                        <input type="email" name="email" id="email" placeholder="Usuario">
+                        <i class="bi bi-envelope-at"></i>
+                    </div>
+
+                    <div class="input-icon">
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                        <i class="bi bi-eye-slash btn-senha"></i>
+                    </div>
+
+                    <div class="input-icon">
+                        <input type="password" name="senha" id="senha" placeholder="Confirme a senha">
+                        <i class="bi bi-eye-slash btn-senha"></i>
+                    </div>
+
+                    <input type="submit" value="Criar conta" class="btn-cadastro">
+                </form>
+
+                <article class="criar-conta">
+                    <p>Já tem conta? <a href="#" id="btn-login">Faça Login!</a></p>
+                </article>
+
+            </section>
+
+        </div>
+
+    </main>
+</body>
+
+</html>

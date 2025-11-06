@@ -1,0 +1,30 @@
+:root {
+    --cor-primaria: #c2fa7c;
+    --cor-secundaria: #845CDC;
+    --cor-terciaria: #5BB5CF;
+    --cor-quaternaria: #828282;
+
+    --cor-white: #FFFFFF;
+    --cor-black: #040404;
+    --cor-darkgray: #4F4F6C;
+
+    --cor-gradiente-1: linear-gradient(90deg, #040404 0%, #4f4f6c 100%);
+    --cor-gradiente-2: linear-gradient(90deg, #040404 14%, #5BB5CF 100%);
+    --cor-gradiente-3: linear-gradient(90deg, #040404 14%, #C2FA7C 100%);  
+    --cor-gradiente-4: linear-gradient(90deg, #040404 0%, #845CDC 100%);  
+
+    --font-primaria: 'inter', sans-serif;
+    --font-secundaria: 'nobile', sans-serif;
+    --font-terciaria: 'Josefin Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--cor-black);
+}
+
