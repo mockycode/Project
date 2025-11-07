@@ -15,10 +15,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<form method="post">
-    <input type="text" name="nome" placeholder="Nome completo" required>
-    <input type="email" name="email" placeholder="E-mail" required>
-    <input type="password" name="senha" placeholder="Senha" required>
-    <input type="text" name="telefone" placeholder="Telefone">
-    <button type="submit">Cadastrar</button>
-</form>

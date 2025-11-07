@@ -1,3 +1,9 @@
+<?php
+    include '../../../../conexao.php';
+
+    $result = $conn->query("SELECT * FROM servicos WHERE ativo = 1");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,7 +34,6 @@
 
     <section>
         <div class="content-mockcode">
-
             <div class="content">
                 <h2>"Transformamos sua ideia em presença digital."</h2>
                 <p>Sua forma de pagar agora é muito mais simples, com a experiência em rapidez, segurança confiança e
@@ -44,6 +49,29 @@
 
     <section>
         <div class="content-card">
+
+            <?php while ($row = $result->fetch_assoc()): ?>
+        <div class="card">
+
+
+            <?php if ($row['imagem']): ?>
+                <img src="uploads/<?php echo $row['imagem']; ?>" alt="<?php echo htmlspecialchars($row['nome']); ?>">
+            <?php else: ?>
+                <img src="https://via.placeholder.com/250x180?text=Serviço" alt="Serviço">
+            <?php endif; ?>
+            <div class="card-text">
+            <h3><?php echo htmlspecialchars($row['nome']); ?></h3>
+            <p><img src="../src/assets/components/icons/check.svg" alt=""><?php echo nl2br(htmlspecialchars($row['descricao'])); ?></p>
+            <button>
+                <a class="btn" href="../adicionar_carrinho.php?id=<?php echo $row['id_servico']; ?>">
+                R$ <?php echo number_format($row['preco'], 2, ',', '.'); ?>
+                <img src="../../src/src/assets/components/icons/carrinho.svg" alt="">
+                </a>
+            </button>
+            </div>
+        </div>
+    <?php endwhile; ?>
+
 
             <div class="card">
                 <img src="../src/assets/components/icons/gestao-insta.svg">

@@ -29,8 +29,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<form method="post">
-    <input type="email" name="email" placeholder="E-mail" required>
-    <input type="password" name="senha" placeholder="Senha" required>
-    <button type="submit">Entrar</button>
-</form>
