@@ -54,11 +54,14 @@
         <div class="card">
 
 
-            <?php if ($row['imagem']): ?>
-                <img src="uploads/<?php echo $row['imagem']; ?>" alt="<?php echo htmlspecialchars($row['nome']); ?>">
+            <?php if (!empty($row['imagem'])): ?>
+                <img src="../../../../uploads/<?php echo htmlspecialchars($row['imagem']); ?>" 
+                    alt="<?php echo htmlspecialchars($row['nome']); ?>" 
+                    width="250" height="180">
             <?php else: ?>
                 <img src="https://via.placeholder.com/250x180?text=Serviço" alt="Serviço">
             <?php endif; ?>
+
             <div class="card-text">
             <h3><?php echo htmlspecialchars($row['nome']); ?></h3>
             <p><img src="../src/assets/components/icons/check.svg" alt=""><?php echo nl2br(htmlspecialchars($row['descricao'])); ?></p>
