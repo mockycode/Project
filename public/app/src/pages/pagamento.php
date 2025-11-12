@@ -1,3 +1,29 @@
+<?php
+include '../../../../conexao.php';
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: form.html");
+    exit;
+}
+
+if (!isset($_GET['id'])) {
+    echo "Serviço não encontrado!";
+    exit;
+}
+
+$id = intval($_GET['id']);
+$sql = "SELECT * FROM servicos WHERE id_servico = $id AND ativo = 1";
+$result = $conn->query($sql);
+$servico = $result->fetch_assoc();
+
+if (!$servico) {
+    echo "Serviço não encontrado!";
+    exit;
+}
+
+$total = 0;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,6 +34,15 @@
     <link rel="stylesheet" href="../assets/styles/pagamento.css">
     <script src="../js/cartao.js" defer></script>
     <title>Pagamento</title>
+    <style>
+        #content-pagamento {
+  scroll-margin-top: 100px;
+  transition: box-shadow 0.3s;
+}
+#content-pagamento:target {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+    </style>
 </head>
 
 <body>
@@ -46,19 +81,19 @@
         </div>
 
     </section>
-
     <section>
+
         <div class="content-card">
             <div class="card">
-                <img src="../src/assets/components/icons/gestao-insta.svg">
+                <img src="../../../../uploads/<?php echo htmlspecialchars($servico['imagem']); ?>" alt="<?php echo htmlspecialchars($servico['nome']); ?>">
 
                 <div class="card-text">
-                    <h3>Gestão de Redes Sociais</h3>
-                    <label for="">1 Item <span>$799,90</span></label>
+                    <h3><?php echo htmlspecialchars($servico['nome']); ?></h3>
+                    <label for="">1 Item <span>R$ <?php echo number_format($servico['preco'], 2, ',', '.'); ?></span></label>
                     <label for="">Cupom <span>-</span></label>
-                    <label for="">Total <span>$799,90</span></label>
+                    <label for="">Total <span>R$ <?php echo number_format($servico['preco'], 2, ',', '.'); ?></span></label>
 
-                    <button>Adquirir pacote</button>
+                    <button class="btn-comprar" id="btnScrollPagamento">Adquirir pacote</button>
 
                     <div class="desconto">
                         <p>cupom de desconto</p>
@@ -68,9 +103,9 @@
             </div>
 
             <div class="descricao">
-                <h2>Pacote Gestão de Redes socias</h2>
+                <h2><?php echo htmlspecialchars($servico['nome']); ?></h2>
                 <img src="../src/assets/components/icons/linha-roxa.svg" alt="">
-                <p><img src="../src/assets/components/icons/check.svg" alt="">Gestão das redes sociais</p>
+                <p><img src="../src/assets/components/icons/check.svg" alt=""><?php echo nl2br(htmlspecialchars($servico['descricao'])); ?></p>
                 <p><img src="../src/assets/components/icons/check.svg" alt="">Movimentação, postagens</p>
                 <p><img src="../src/assets/components/icons/check.svg" alt="">engajamento nos posts</p>
                 <p><img src="../src/assets/components/icons/check.svg" alt="">Criação dos materiais para às redes sociais</p>
@@ -84,7 +119,7 @@
     </section>
 
     <section>
-        <div class="content-pagamento">
+        <div class="content-pagamento" id="content-pagamento">
             <div class="bloco">
                 <div class="pagamento">
                     <div class="sifrao-img">
@@ -142,7 +177,10 @@
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
-                    <form action="" id="card-form" class="card-form">
+                    <form action="processa_pagamento.php" id="card-form" class="card-form" method="POST">
+
+                    <input type="hidden" name="id_servico" value="<?php echo $servico['id_servico']; ?>">
+    <input type="hidden" name="valor" value="<?php echo $servico['preco']; ?>">
                         <div class="group">
                             <label for="inputNumber">Número</label>
                             <input type="text" id="inputNumber" maxlength="19" autocomplete="off">
@@ -174,8 +212,36 @@
                                 <input type="text" id="inputCCV" maxlength="3">
                             </div>
                         </div>
-                        <button type="submit" class="btn-submit"> Enviar </button>
+                        <button type="submit" class="btn-submit" id="confirmarPagamento"> Enviar </button>
                     </form>
+                    
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $id_servico = $_POST['id_servico'] ?? null;
+        $nome_cartao = $_POST['nome_cartao'];
+        $numero_cartao = $_POST['numero_cartao'];
+    }
+    ?>
+    <script>
+  const inputNumero = document.getElementById('numero_cartao');
+  const inputValidade = document.getElementById('validade');
+
+  // Formata número do cartão: 0000 0000 0000 0000
+  inputNumero.addEventListener('input', (e) => {
+    e.target.value = e.target.value
+      .replace(/\D/g, '')
+      .replace(/(\d{4})(?=\d)/g, '$1 ')
+      .trim();
+  });
+
+  // Formata validade: MM/AA
+  inputValidade.addEventListener('input', (e) => {
+    e.target.value = e.target.value
+      .replace(/\D/g, '')
+      .replace(/(\d{2})(\d)/, '$1/$2')
+      .substr(0, 5);
+  });
+</script>
                     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
                 </div>
             </div>
@@ -276,7 +342,12 @@
     <a href="https://wa.me/5599999999999" class="btn-whats" target="_blank">
         <i class="bi bi-whatsapp"></i>
     </a>
-
+<script>
+  document.getElementById("btnScrollPagamento").addEventListener("click", function() {
+    const secaoPagamento = document.getElementById("content-pagamento");
+    secaoPagamento.scrollIntoView({ behavior: "smooth" });
+  });
+</script>
 </body>
 
 </html>

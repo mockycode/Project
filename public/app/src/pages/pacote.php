@@ -66,7 +66,7 @@
             <h3><?php echo htmlspecialchars($row['nome']); ?></h3>
             <p><img src="../src/assets/components/icons/check.svg" alt=""><?php echo nl2br(htmlspecialchars($row['descricao'])); ?></p>
             <button>
-                <a class="btn" href="../adicionar_carrinho.php?id=<?php echo $row['id_servico']; ?>">
+                <a class="btn" href="pagamento.php?id=<?php echo $row['id_servico']; ?>">
                 R$ <?php echo number_format($row['preco'], 2, ',', '.'); ?>
                 <img src="../../src/src/assets/components/icons/carrinho.svg" alt="">
                 </a>
