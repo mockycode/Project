@@ -29,7 +29,7 @@ if ($conn->query($sqlPedido) === TRUE) {
     $conn->query($sqlPagamento);
 
     // Atualiza o status do pedido como concluído
-    $sqlUpdate = "UPDATE pedidos SET status = 'concluido' WHERE id_pedido = '$id_pedido'";
+    $sqlUpdate = "UPDATE pedidos SET status = 'em andamento' WHERE id_pedido = '$id_pedido'";
     $conn->query($sqlUpdate);
 
     echo "<script>
