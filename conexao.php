@@ -1,14 +1,14 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$pass = ''; // senha do seu MySQL
-$dbname = 'MockyCode';
+$host="mysql-3babbcf6-ibiapinoigor-305e.i.aivencloud.com";
+$port=14624;
+$socket="";
+$user="avnadmin";
+$password= ""; 
+$dbname="mockycode";
 
-$conn = new mysqli($host, $user, $pass, $dbname);
+$conn = new mysqli($host, $user, $password, $dbname, $port, $socket)
+	or die ('Could not connect to the database server' . mysqli_connect_error());
 
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-} // else {
-//     echo 'sucesso na conexao';
-// }
+//$conn->close();
+ 
 ?>
