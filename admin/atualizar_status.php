@@ -1,6 +1,11 @@
 <?php
 include '../conexao.php';
-session_start();
+    session_start();
+
+    if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'admin'){
+        header('Location: ../public/src/pages/form.php');
+        exit();
+    }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_pedido = $_POST['id_pedido'];

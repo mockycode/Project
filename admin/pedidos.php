@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+    session_start();
+
+    if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'admin'){
+        header('Location: ../public/src/pages/form.php');
+        exit();
+    }
 include '../conexao.php';
 
 

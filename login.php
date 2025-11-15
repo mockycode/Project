@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['tipo'] = $usuario['tipo'];
             $_SESSION['nome'] = $usuario['nome'];
            if ($usuario['tipo'] === 'admin') {
-                header("Location: admin/index.php");
+                header("Location: admin/admin.php");
             } else {
                 header("Location: index.html");
             }

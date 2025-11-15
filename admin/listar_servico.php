@@ -1,5 +1,11 @@
 <?php
 include '../conexao.php';
+    session_start();
+
+    if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'admin'){
+        header('Location: ../public/src/pages/form.php');
+        exit();
+    }
 
 $result = $conn->query("SELECT * FROM servicos");
 echo "<a href='cadastrar_servico.php'>Novo Serviço</a><hr>";

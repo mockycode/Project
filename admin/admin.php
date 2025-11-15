@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+
+    if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'admin'){
+        header('Location: ../public/src/pages/form.php');
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
