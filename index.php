@@ -10,24 +10,7 @@
 </head>
 
 <body>
-    <header>
-        <img class="logo" src="./public/app/src/src/assets/components/logo/logo-mockycode.svg" alt="">
-
-        <nav>
-            <a href="/index.html">Home</a>
-            <a href="./public/app/src/pages/pacote.php">Pacote</a>
-            <a href="public/app/src/pages/contato.html">Contato</a>
-            <a href="#">Sobre nós</a>
-        </nav>
-
-        <div class="btns-menu">
-            <a href="public/app/src/pages/form.html">
-                <button class="btn-login">Login</button>
-                <button class="btn-singup">sign up</button>
-            </a>
-        </div>
-    </header>
-
+    <?php include 'includes/header.php'?>
     <main>
         <div class="content-main">
             <div class="mao-robo">
