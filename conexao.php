@@ -1,6 +1,6 @@
 <?php
 
-$configPath = _DIR_ . "/config.php";
+$configPath = __DIR__ . "/config.php";
 
 if (file_exists($configPath)) {
     // Dev Station
@@ -9,7 +9,7 @@ if (file_exists($configPath)) {
 	$port = $db_port;
 	$socket="";
     $password = $db_password;
-    $name = $db_name;
+    $dbname = $db_name;
 	$user = $db_user;
 } else {
     // FLY.IO
@@ -25,5 +25,4 @@ $conn = new mysqli($host, $user, $password, $dbname, $port, $socket)
 	or die ('Could not connect to the database server' . mysqli_connect_error());
 
 //$conn->close();
- 
 ?>
