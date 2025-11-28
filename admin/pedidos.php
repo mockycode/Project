@@ -4,7 +4,7 @@ session_start();
     session_start();
 
     if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'admin'){
-        header('Location: ../public/src/pages/form.php');
+        header('Location: ../public/app/src/pages/form.html');
         exit();
     }
 include '../conexao.php';
