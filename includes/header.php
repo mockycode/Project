@@ -8,17 +8,17 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="./public/app/src/src/assets/components/logo/logo-mockycode.svg" alt="">
+        <img class="logo" src="/project/public/app/src/src/assets/components/logo/logo-mockycode.svg" alt="">
 
         <nav>
-            <a href="index.php">Home</a>
-            <a href="public/app/src/pages/pacote.php">Pacote</a>
-            <a href="public/app/src/pages/contato.html">Contato</a>
-            <a href="#">Sobre nós</a>
+            <a href="/project/">Home</a>
+            <a href="/project/public/app/src/pages/pacote.php">Pacote</a>
+            <a href="/project/public/app/src/pages/contato.php">Contato</a>
+            <a href="/project/public/app/src/pages/sobrenos.php">Sobre nós</a>
         </nav>
 
         <div class="btns-menu">
-            <a href="public/app/src/pages/form.html">
+            <a href="/project/public/app/src/pages/form.html">
                 <button class="btn-login">Login</button>
                 <button class="btn-singup">sign up</button>
             </a>

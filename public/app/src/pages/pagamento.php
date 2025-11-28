@@ -46,21 +46,7 @@ $total = 0;
 </head>
 
 <body>
-    <header>
-        <img class="logo" src="../src/assets/components/logo/logo-mockycode.svg" alt="">
-
-        <nav>
-            <a href="/index.html">Home</a>
-            <a href="./public/app/src/pages/pacote.html">Pacote</a>
-            <a href="/public/app/src/pages/contato.html">Contato</a>
-            <a href="#">Sobre nós</a>
-        </nav>
-
-        <div class="btns-menu">
-            <button class="btn-login">Login</button>
-            <button class="btn-singup">sign up</button>
-        </div>
-    </header>
+    <?php include '../../../../includes/header.php'?>
 
     <section>
         <div class="content-quemsomos">
