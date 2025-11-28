@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $preco = $_POST['preco'] ?? '0';
     $categoria = $_POST['categoria'] ?? '';
 
-    Diretório de uploads
     $diretorio = "../uploads/";
     if (!is_dir($diretorio)) {
         mkdir($diretorio, 0777, true);
@@ -86,10 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <section class="admin">
-        <div class="left">
-            <a href="pedidos.php"><p>Pedidos</p></a>
-            <a href="listar_servico.php"><p>Produtos</p></a>
-        </div>
+    <?php include '../includes/menu-left.php'; ?>
 
         <div class="rigth">
             <h1>Olá, Administrador!</h1>

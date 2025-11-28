@@ -1,16 +1,12 @@
 <?php
 session_start();
 
-    session_start();
-
     if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'admin'){
         header('Location: ../public/app/src/pages/form.html');
         exit();
     }
 include '../conexao.php';
 
-
-// Consulta todos os pedidos com seus detalhes
 $sql = "
 SELECT 
     p.id_pedido,
@@ -38,39 +34,18 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Controle de Pedidos</title>
-    <style>
-        body {
-            background: #f5f5f5;
-            padding: 30px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
-            background: #fff;
-            box-shadow: 0 0 8px rgba(0,0,0,0.1);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: center;
-        }
-        th {
-            background: #222;
-            color: white;
-        }
-        tr:nth-child(even) { background: #f9f9f9; }
-        .btn-aprovar { background: #28a745; color: white; }
-        .btn-cancelar { background: #dc3545; color: white; }
-    </style>
+    <link rel="stylesheet" href="../public/app/src/assets/styles/admin.css">
 </head>
 <body>
-    <h1>Pedidos e Pagamentos</h1>
-    <table>
+
+<section class="admin">
+<?php include '../includes/menu-left.php'; ?>
+
+        <div class="rigth">
+            <h1>Olá, Administrador!</h1>
+            <h2>Pedidos e Pagamentos</h2>
+
+            <table>
         <thead>
             <tr>
                 <th>ID Pedido</th>
@@ -110,5 +85,7 @@ $result = $conn->query($sql);
             <?php } ?>
         </tbody>
     </table>
+        </div>
+    </section>
 </body>
 </html>

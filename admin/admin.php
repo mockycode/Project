@@ -17,10 +17,7 @@
 </head>
 <body>
     <section class="admin">
-        <div class="left">
-            <a href="pedidos.php"><p>Pedidos</p></a>
-            <a href="listar_servico.php"><p>Produtos</p></a>
-        </div>
+        <?php include '../includes/menu-left.php'; ?>
 
         <div class="rigth">
             <h1>Olá, Administrador!</h1>
