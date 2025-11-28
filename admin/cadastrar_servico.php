@@ -6,19 +6,19 @@ include '../conexao.php';
         header('Location: ../public/app/src/pages/form.html');
         exit();
     }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'] ?? '';
     $descricao = $_POST['descricao'] ?? '';
     $preco = $_POST['preco'] ?? '0';
     $categoria = $_POST['categoria'] ?? '';
 
-    // Diretório de uploads
+    Diretório de uploads
     $diretorio = "../uploads/";
     if (!is_dir($diretorio)) {
         mkdir($diretorio, 0777, true);
     }
 
-    // Verifica se arquivo foi enviado
     if (!isset($_FILES['foto']) || $_FILES['foto']['error'] !== UPLOAD_ERR_OK) {
         echo "Nenhuma imagem enviada ou erro no upload.";
         exit;
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nomeOriginal = basename($arquivo['name']);
     $tmpName = $arquivo['tmp_name'];
 
-    // Gera nome único e seguro para salvar
+
     $ext = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
     $nomeSeguro = preg_replace('/[^a-zA-Z0-9_\-\.]/', '_', pathinfo($nomeOriginal, PATHINFO_FILENAME));
     $novoNome = time() . '_' . $nomeSeguro . '.' . $ext;
@@ -42,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Validação para SVG (remove scripts)
     if ($ext === 'svg') {
         $conteudoSvg = file_get_contents($tmpName);
         if (stripos($conteudoSvg, '<script') !== false || stripos($conteudoSvg, 'onload=') !== false) {
@@ -51,13 +50,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Move o arquivo para a pasta uploads
+
     if (!move_uploaded_file($tmpName, $caminhoCompleto)) {
         echo "Erro ao mover arquivo enviado.";
         exit;
     }
 
-    // Salva apenas o nome do arquivo no banco (ex: 162345_nome.svg)
+    
     $imagemNoBanco = $novoNome;
 
     $stmt = $conn->prepare("INSERT INTO servicos (nome, descricao, preco, categoria, imagem) VALUES (?, ?, ?, ?, ?)");
@@ -77,11 +76,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<form method="post" enctype="multipart/form-data">
-    <input type="text" name="nome" placeholder="Nome" required><br>
-    <textarea name="descricao" placeholder="Descrição"></textarea><br>
-    <input type="number" step="0.01" name="preco" placeholder="Preço" required><br>
-    <input type="text" name="categoria" placeholder="Categoria"><br>
-    <input type="file" name="foto" accept=".jpg,.jpeg,.png,.gif,.svg" required><br>
-    <button type="submit">Cadastrar</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/app/src/assets/styles/admin.css">
+</head>
+<body>
+    <section class="admin">
+        <div class="left">
+            <a href="pedidos.php"><p>Pedidos</p></a>
+            <a href="listar_servico.php"><p>Produtos</p></a>
+        </div>
+
+        <div class="rigth">
+            <h1>Olá, Administrador!</h1>
+            <h2>Aqui você pode adicionar novos produtos...</h2>
+            <form method="post" enctype="multipart/form-data">
+                <input type="text" name="nome" placeholder="Nome" required><br>
+                <textarea name="descricao" placeholder="Descrição"></textarea><br>
+                <input type="number" step="0.01" name="preco" placeholder="Preço" required><br>
+                <input type="text" name="categoria" placeholder="Categoria"><br>
+                <input type="file" name="foto" accept=".jpg,.jpeg,.png,.gif,.svg" ><br>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
