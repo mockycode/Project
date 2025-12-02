@@ -1,6 +1,7 @@
 <?php
-include '../conexao.php';
     session_start();
+
+    include '../conexao.php';
 
     if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] !== 'admin'){
         header('Location: ../public/app/src/pages/form.html');

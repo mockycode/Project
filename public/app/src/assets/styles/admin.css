@@ -26,19 +26,18 @@ body {
 
 .left .menu a{
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     size: 30px;
 }
 
-/* .left a:hover{
-    color: rgb(190, 190, 190);
-} */
+.left a:hover{
+    color: rgb(0, 0, 0);
+}
 
 .left .menu p{
     height: 60px;
     width: 270px;
     display: flex;
-    background-color: #c1fa7c56;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
@@ -84,6 +83,7 @@ table {
     margin-top: 25px;
     background: #fff;
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    color: black;
 }
 th, td {
     border: 1px solid #ddd;
