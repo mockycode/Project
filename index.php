@@ -10,7 +10,15 @@
 </head>
 
 <body>
-    <?php include 'includes/header.php'?>
+    <?php 
+        session_start();
+
+    if(!isset($_SESSION['tipo'])){
+        include 'includes/header.php';
+    } else {
+        include 'includes/header-log.php';
+    }
+    ?>
     <main>
         <div class="content-main">
             <div class="mao-robo">
