@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../public/app/src/assets/styles/index.css">
+    <link rel="stylesheet" href="/project/public/app/src/assets/styles/index.css">
 </head>
 <body>
     <header>
@@ -18,13 +18,13 @@
         </nav>
 
         <div class="btns-menu" id="userMenuBtn">
-            <img src="./public/app/src/src/assets/components/icons/user.png" alt="">
+            <img src="/project/public/app/src/src/assets/components/icons/user.png" alt="">
         </div>
 
         <div class="menu-dropdown" id="userDropdown">
             <?php
-                $perfilLink = ($_SESSION['tipo'] === 'admin') 
-                    ? '/project/admin/admin.php';
+                $perfilLink = ($_SESSION['tipo'] === 'admin')
+                    ? '/project/admin/admin.php'
                     : '/project/index.php';
             ?>
             <a href="<?php echo $perfilLink; ?>">Meu Perfil</a>
@@ -41,7 +41,6 @@
         menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     });
 
-    // Fecha o menu clicando fora
     document.addEventListener("click", (e) => {
         if (!btn.contains(e.target) && !menu.contains(e.target)) {
             menu.style.display = "none";

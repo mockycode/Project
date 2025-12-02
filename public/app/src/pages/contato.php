@@ -11,7 +11,16 @@
 </head>
 
 <body>
-    <?php include '../../../../includes/header.php'?>
+
+        <?php 
+        session_start();
+
+    if(!isset($_SESSION['tipo'])){
+        include '../../../../includes/header.php';
+    } else {
+        include '../../../../includes/header-log.php';
+    }
+    ?>
 
     <section>
         <div class="content-mockcode">
