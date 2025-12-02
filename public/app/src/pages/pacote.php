@@ -49,15 +49,31 @@
             <?php endif; ?>
 
             <div class="card-text">
-            <h3><?php echo htmlspecialchars($row['nome']); ?></h3>
-            <p><img src="../src/assets/components/icons/check.svg" alt=""><?php echo nl2br(htmlspecialchars($row['descricao'])); ?></p>
-            <button>
-                <a class="btn" href="pagamento.php?id=<?php echo $row['id_servico']; ?>">
-                R$ <?php echo number_format($row['preco'], 2, ',', '.'); ?>
-                <img src="../../src/src/assets/components/icons/carrinho.svg" alt="">
-                </a>
-            </button>
-            </div>
+<div class="card-text">
+    <h3><?php echo htmlspecialchars($row['nome']); ?></h3>
+    
+<?php
+$linhas = explode("\n", $row['descricao']);
+?>
+
+<p>
+<?php foreach ($linhas as $linha): ?>
+    <?php if (trim($linha) !== ""): ?>
+        <div class="desc">
+            <img src="../src/assets/components/icons/check.svg" alt="">
+            <span><?php echo htmlspecialchars($linha); ?></span>
+        </div>
+    <?php endif; ?>
+<?php endforeach; ?>
+</p>
+
+    <button>
+        <a class="btn" href="pagamento.php?id=<?php echo $row['id_servico']; ?>">
+            R$ <?php echo number_format($row['preco'], 2, ',', '.'); ?>
+            <img src="../../src/src/assets/components/icons/carrinho.svg" alt="">
+        </a>
+    </button>
+</div>
         </div>
     <?php endwhile; ?>
     </section>

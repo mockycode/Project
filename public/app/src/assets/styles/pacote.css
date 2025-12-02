@@ -465,3 +465,10 @@ a:hover {
     color: white;
     background-color: #20ba5a;
 }
+.desc {
+    color: white; 
+    display:flex; 
+    align-items:start; 
+    gap:6px; 
+    margin-bottom:4px;
+}
