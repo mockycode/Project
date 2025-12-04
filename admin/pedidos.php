@@ -52,7 +52,6 @@ $result = $conn->query($sql);
                 <th>Cliente</th>
                 <th>Email</th>
                 <th>Serviço</th>
-                <th>Categoria</th>
                 <th>Valor</th>
                 <th>Status Pedido</th>
                 <th>Método</th>
@@ -64,11 +63,10 @@ $result = $conn->query($sql);
         <tbody>
             <?php while ($row = $result->fetch_assoc()) { ?>
             <tr>
-                <td><?= $row['id_pedido'] ?></td>
+                <td>#<?= $row['id_pedido'] ?></td>
                 <td><?= htmlspecialchars($row['cliente']) ?></td>
                 <td><?= htmlspecialchars($row['email']) ?></td>
                 <td><?= htmlspecialchars($row['servico']) ?></td>
-                <td><?= htmlspecialchars($row['categoria']) ?></td>
                 <td>R$ <?= number_format($row['preco_unitario'], 2, ',', '.') ?></td>
                 <td><?= ucfirst($row['status_pedido']) ?></td>
                 <td><?= strtoupper($row['metodo_pagamento']) ?></td>

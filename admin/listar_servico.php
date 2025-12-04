@@ -24,18 +24,35 @@ include '../conexao.php';
 
         <div class="rigth">
             <h1>Olá, Administrador!</h1>
-            <?php 
-                $result = $conn->query("SELECT * FROM servicos");
-                echo "<a href='cadastrar_servico.php'>Novo Produto</a><hr>";
+            <div class="produtos-container">
+    <a class="btn-novo" href="cadastrar_servico.php">Novo Produto</a>
 
-                while ($row = $result->fetch_assoc()) {
-                    echo "<div>";
-                    echo "<h3>{$row['nome']} - R$ " . number_format($row['preco'], 2, ',', '.') . "</h3>";
-                    echo "<a href='editar_servico.php?id={$row['id_servico']}'>Editar</a> | ";
-                    echo "<a href='excluir_servico.php?id={$row['id_servico']}'>Excluir</a>";
-                    echo "</div><hr>";
-                }
-            ?>
+    <?php 
+        $result = $conn->query("SELECT * FROM servicos");
+
+        while ($row = $result->fetch_assoc()) { ?>
+            
+            <div class="produto-card">
+                
+                <div class="produto-img">
+                    <img src="../uploads/<?= $row['imagem'] ?>" alt="Imagem do produto">
+                </div>
+
+                <div class="produto-info">
+                    <h3><?= $row['nome'] ?></h3>
+                    <p class="descricao"><?= $row['descricao'] ?></p>
+                    <p class="preco">R$ <?= number_format($row['preco'], 2, ',', '.') ?></p>
+
+                    <div class="botoes">
+                        <a class="btn editar" href="editar_servico.php?id=<?= $row['id_servico'] ?>">Editar</a>
+                        <a class="btn excluir" href="excluir_servico.php?id=<?= $row['id_servico'] ?>">Excluir</a>
+                    </div>
+                </div>
+
+            </div>
+
+    <?php } ?>
+</div>
         </div>
     </section>
 </body>

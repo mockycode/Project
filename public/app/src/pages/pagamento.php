@@ -99,14 +99,20 @@ $total = 0;
             <div class="descricao">
                 <h2><?php echo htmlspecialchars($servico['nome']); ?></h2>
                 <img src="../src/assets/components/icons/linha-roxa.svg" alt="">
-                <p><img src="../src/assets/components/icons/check.svg" alt=""><?php echo nl2br(htmlspecialchars($servico['descricao'])); ?></p>
-                <p><img src="../src/assets/components/icons/check.svg" alt="">Movimentação, postagens</p>
-                <p><img src="../src/assets/components/icons/check.svg" alt="">engajamento nos posts</p>
-                <p><img src="../src/assets/components/icons/check.svg" alt="">Criação dos materiais para às redes sociais</p>
-                <p><img src="../src/assets/components/icons/check.svg" alt="">Identidade Visual</p>
-                <p><img src="../src/assets/components/icons/check.svg" alt="">Tipografia, Formas etc.</p>
-                <p><img src="../src/assets/components/icons/check.svg" alt="">Logotipo</p>
-      
+                <p><?php
+$linhas = explode("\n", $servico['descricao']);
+
+foreach ($linhas as $linha):
+    if (trim($linha) !== ""):
+?>
+    <div class="desc">
+        <img src="../src/assets/components/icons/check.svg" alt="">
+        <?php echo htmlspecialchars($linha); ?>
+    </div>
+<?php
+    endif;
+endforeach;
+?></p>
                 <h3>Garanta já à oportunidade de alavancar o seu négocio!</h3>
             </div>
         </div>

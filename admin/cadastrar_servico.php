@@ -89,17 +89,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include '../includes/menu-left.php'; ?>
 
         <div class="rigth">
-            <h1>Olá, Administrador!</h1>
-            <h2>Aqui você pode adicionar novos produtos...</h2>
-            <form method="post" enctype="multipart/form-data">
-                <input type="text" name="nome" placeholder="Nome" required><br>
-                <textarea name="descricao" placeholder="Descrição"></textarea><br>
-                <input type="number" step="0.01" name="preco" placeholder="Preço" required><br>
-                <input type="text" name="categoria" placeholder="Categoria"><br>
-                <input type="file" name="foto" accept=".jpg,.jpeg,.png,.gif,.svg" ><br>
-                <button type="submit">Cadastrar</button>
-            </form>
-        </div>
+    <h1>Olá, Administrador!</h1>
+
+    <div class="form-card">
+        <form method="post" enctype="multipart/form-data">
+
+            <label>Nome do Produto</label>
+            <input type="text" name="nome" placeholder="Digite o nome..." required>
+
+            <label>Descrição</label>
+            <textarea name="descricao" placeholder="Descreva o produto..."></textarea>
+
+            <label>Preço</label>
+            <input type="number" step="0.01" name="preco" placeholder="Ex: 49.90" required>
+
+            <label>Categoria</label>
+            <input type="text" name="categoria" placeholder="Barba, Cabelo, etc...">
+
+            <label>Imagem do Produto</label>
+            <input type="file" name="foto" accept=".jpg,.jpeg,.png,.gif,.svg">
+
+            <button class="btn-submit" type="submit">Cadastrar Produto</button>
+        </form>
+    </div>
+</div>
     </section>
 </body>
 </html>
