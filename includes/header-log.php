@@ -25,7 +25,7 @@
             <?php
                 $perfilLink = ($_SESSION['tipo'] === 'admin')
                     ? '/project/admin/admin.php'
-                    : '/project/index.php';
+                    : '/project/client/meus_pedidos.php';
             ?>
             <a href="<?php echo $perfilLink; ?>">Meu Perfil</a>
             <a href="/project/logout.php">Sair</a>

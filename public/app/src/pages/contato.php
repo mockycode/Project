@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/styles/contato.css">
     <script src="../js/parceiros.js" defer></script>
+    <link rel="shortcut icon" href="/project/public/app/src/src/assets/components/logo/logo-mockycode.svg" type="image/x-icon">
     <title>Contato</title>
 </head>
 

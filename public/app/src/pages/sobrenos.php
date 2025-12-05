@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../assets/styles/sobre.css">
     <title>Sobre Nós</title>
+    <link rel="shortcut icon" href="/project/public/app/src/src/assets/components/logo/logo-mockycode.svg" type="image/x-icon">
 </head>
 
 <body>

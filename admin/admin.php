@@ -28,7 +28,8 @@ $totalFaturado = $resultFaturado->fetch_assoc()['faturado'] ?? 0;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin | Painel</title>
+    <link rel="shortcut icon" href="/project/public/app/src/src/assets/components/logo/logo-mockycode.svg" type="image/x-icon">
     <link rel="stylesheet" href="../public/app/src/assets/styles/admin.css">
 </head>
 <body>

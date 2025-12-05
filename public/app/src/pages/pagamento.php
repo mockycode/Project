@@ -34,6 +34,7 @@ $total = 0;
     <link rel="stylesheet" href="../assets/styles/pagamento.css">
     <script src="../js/cartao.js" defer></script>
     <title>Pagamento</title>
+    <link rel="shortcut icon" href="/project/public/app/src/src/assets/components/logo/logo-mockycode.svg" type="image/x-icon">
     <style>
         #content-pagamento {
   scroll-margin-top: 100px;

@@ -63,6 +63,18 @@ body {
     size: 30px;
 }
 
+.left img{
+    height: 100px;
+    width: 100px;
+}
+
+.left .menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .rigth {
     display: flex;
     flex-direction: column;
@@ -150,6 +162,7 @@ table {
     overflow: hidden;
     box-shadow: 0 4px 14px rgba(0,0,0,0.1);
     color: black;
+    text-align: center;
 }
 
 .table-container {
@@ -162,7 +175,37 @@ table {
     box-shadow: 0 4px 18px #00000070;
 }
 
-/* Cabeçalho */
+td.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-action {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    display: inline-block;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-action.edit {
+    background: #007bff;
+}
+
+.btn-action.edit:hover {
+    background: #0056d2;
+}
+
+.btn-action.delete {
+    background: #e63946;
+}
+
+.btn-action.delete:hover {
+    background: #c62828;
+}
 thead tr {
     background: linear-gradient(90deg, #000, #412e6b);
 }
@@ -193,6 +236,7 @@ tbody td {
     padding: 14px 12px;
     font-size: 15px;
     color: #000000;
+    text-align: center;
 }
 
 .status-pendente {

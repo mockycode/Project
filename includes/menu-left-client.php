@@ -10,10 +10,8 @@
 <div class="left">
             <div class="menu">
                 <a href="/project/"><img src="/project/public/app/src/src/assets/components/logo/logo-mockycode.svg" alt=""></a>
-                <a href="admin.php"><p>Painel</p></a>
-                <a href="pedidos.php"><p>Pedidos</p></a>
-                <a href="listar_servico.php"><p>Produtos</p></a>
-                <a href="usuario.php"><p>Usuarios</p></a>
+                <a href="meus_pedidos.php"><p>Pedidos</p></a>
+                <a href="#"><p>Conta</p></a>
             </div>
             <div class="logout">
                 <a href="../logout.php"><p>Logout</p></a>
